@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <title>Payoo MFS</title>
+
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
@@ -19,39 +19,62 @@
         <div
           class="mockup-phone-display text-white grid place-content-center bg-neutral-900"
         >
-          <!---Log In Section--->
           <div class="hero min-h-screen">
             <div class="hero-content flex-col">
               <div class="text-center lg:text-center">
                 <h1 class="text-5xl font-bold">Login now!</h1>
                 <p class="py-6">
                   Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  assumenda excepturi exercitationem quasi.
                 </p>
               </div>
+
               <div class="card w-full max-w-sm shrink-0 shadow-2xl">
-                <div class="card-body">
-                  <div class="bg-color: black">
-                    <fieldset class="fieldset">
+                <form
+                  class="card-body bg-black rounded-2xl"
+                  action="#"
+                  method="POST"
+                >
+                  <fieldset class="fieldset">
                     <label class="label">Phone Number</label>
-                    <input type="number" class="input text-black" placeholder="+8801*********" />
+                    <input
+                      id="phone-number"
+                      type="text"
+                      class="input text-black"
+                      placeholder="+8801*********"
+                      autocomplete="username"
+                      required
+                    />
+
                     <label class="label">Pin</label>
                     <input
                       type="password"
                       class="input text-black"
                       placeholder="******"
+                      autocomplete="current-password"
+                      required
                     />
-                    <div><a class="link link-hover">Forgot password?</a></div>
-                    <button class="btn btn-neutral mt-4">Login</button>
-                  </div>
+
+                    <div class="mt-2">
+                      <a class="link link-hover text-sm text-gray-400"
+                        >Forgot password?</a
+                      >
+                    </div>
+                    <button
+                      id="btn-login"
+                      type="submit"
+                      class="btn btn-neutral mt-4 w-full"
+                    >
+                      Login
+                    </button>
                   </fieldset>
-                </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
+    <script src="/js/login.js"></script>
   </body>
 </html>
