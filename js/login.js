@@ -7,4 +7,7 @@ document
     console.log("login button clicked");
     //step 3: get the phone number
     const phoneNumber = document.getElementById("phone-number").value;
+    const pinNumber = document.getElementById("pin-number").value;
+    console.log(phoneNumber);
+    console.log(pinNumber);
   });
