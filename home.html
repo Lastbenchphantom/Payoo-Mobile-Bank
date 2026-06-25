@@ -42,9 +42,9 @@
           <!-- add money form start -->
           <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div class="card-body">
-              <fieldset class="fieldset text-black">
+              <form class="fieldset text-black">
                 <label class="label">Amount to Add</label>
-                <input
+                <input id="amount"
                   type="text"
                   class="input"
                   placeholder="Amount"
@@ -52,20 +52,23 @@
                   required
                 />
                 <label class="label">Password</label>
-                <input
+                <input id="pin"
                   type="password"
                   class="input"
                   placeholder="Password"
                   autocomplete="off"
                   required
                 />
-                <button class="btn btn-neutral mt-4">Add Money</button>
-              </fieldset>
+                <button id="btn-add-money" class="btn btn-neutral mt-4">
+                  Add Money
+                </button>
+              </form>
             </div>
           </div>
           <!-- add money form end -->
         </div>
       </div>
     </main>
+    <script src="/js/home.js"></script>
   </body>
 </html>
