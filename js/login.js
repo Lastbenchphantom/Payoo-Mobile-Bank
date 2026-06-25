@@ -13,6 +13,7 @@ document
     //this is temporary
     if (phoneNumber === "5" && pinNumber === "1234") {
       alert("you are loged in");
+      window.location.href = "../home.html";
       //step-5: allow user to use the website
     } else {
       alert("Wrond credentials");
