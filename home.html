@@ -40,7 +40,7 @@
           </div>
           <div class="divider divider-neutral"></div>
           <!-- add money form start -->
-          <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div class="hidden card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div class="card-body">
               <form class="fieldset text-black">
                 <label class="label">Amount to Add</label>
@@ -66,6 +66,33 @@
             </div>
           </div>
           <!-- add money form end -->
+           <!-- cash out start -->
+            <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+            <div class="card-body">
+              <form class="fieldset text-black">
+                <label class="label">Amount to Withdraw</label>
+                <input id="withdraw-amount"
+                  type="text"
+                  class="input"
+                  placeholder="Amount"
+                  autocomplete="off"
+                  required
+                />
+                <label class="label">Password</label>
+                <input id="withdraw-pin"
+                  type="password"
+                  class="input"
+                  placeholder="Password"
+                  autocomplete="off"
+                  required
+                />
+                <button id="btn-withdraw" class="btn btn-neutral mt-4">
+                  Cash Out
+                </button>
+              </form>
+            </div>
+          </div>
+            <!-- cash out end -->
         </div>
       </div>
     </main>
