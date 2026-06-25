@@ -28,3 +28,22 @@ document
       alert("wrong credentials");
     }
   });
+
+document
+  .getElementById("btn-withdraw")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const amount = document.getElementById("withdraw-amount").value;
+    const withdrawPin = document.getElementById("withdraw-pin").value;
+    const balance = document.getElementById("balance").innerText;
+    const balanceNumber = parseFloat(balance);
+    const withdrawAmount = parseFloat(amount);
+
+    if (withdrawPin === "1234") {
+      const newBalance = balanceNumber - withdrawAmount;
+
+      document.getElementById("balance").innerText = newBalance;
+    } else {
+      alert("wrong credentials");
+    }
+  });
