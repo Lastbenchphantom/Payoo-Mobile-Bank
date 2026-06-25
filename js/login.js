@@ -10,4 +10,11 @@ document
     const pinNumber = document.getElementById("pin-number").value;
     console.log(phoneNumber);
     console.log(pinNumber);
+    //this is temporary
+    if (phoneNumber === "5" && pinNumber === "1234") {
+      alert("you are loged in");
+      //step-5: allow user to use the website
+    } else {
+      alert("Wrond credentials");
+    }
   });
