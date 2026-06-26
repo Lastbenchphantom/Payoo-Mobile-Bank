@@ -7,8 +7,8 @@ document
     //prevent page reload after form submission
     event.preventDefault();
     console.log("money add button clicked");
-    const amount = document.getElementById("amount").value;
-    const pinNumber = document.getElementById("pin").value;
+    const amount = getInputValueById("amount");
+    const pinNumber = getInputValueById("pin");
 
     if (pinNumber === "1234") {
       console.log("added money to your account");
@@ -33,13 +33,14 @@ document
   .getElementById("btn-withdraw")
   .addEventListener("click", function (event) {
     event.preventDefault();
-    const amount = document.getElementById("withdraw-amount").value;
-    const withdrawPin = document.getElementById("withdraw-pin").value;
+    const amount = getInputValueById("withdraw-amount");
+    console.log(amount);
+    const pinNumber = getInputValueById("pin");
     const balance = document.getElementById("balance").innerText;
     const balanceNumber = parseFloat(balance);
     const withdrawAmount = parseFloat(amount);
 
-    if (withdrawPin === "1234") {
+    if (pinNumber === "1234") {
       const newBalance = balanceNumber - withdrawAmount;
 
       document.getElementById("balance").innerText = newBalance;
