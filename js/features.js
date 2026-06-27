@@ -1,12 +1,21 @@
-//show the cash out form
+const addMoneyBtn = document.getElementById("addmoney-btn");
+const cashOutBtn = document.getElementById("cashout-btn");
+const addMoneyForm = document.getElementById("addmoney-form");
+const cashOutForm = document.getElementById("cashout-form");
 
-document.getElementById("cashout-btn").addEventListener("click", function () {
-  //cash out button clicked
-  document.getElementById("cashout-form").classList.remove("hidden");
-  document.getElementById("addmoney-form").classList.add("hidden");
+cashOutBtn.addEventListener("click", function () {
+  cashOutForm.classList.remove("hidden");
+  addMoneyForm.classList.add("hidden");
+
+  // Dynamic button visual states
+  cashOutBtn.classList.add("btn-active");
+  addMoneyBtn.classList.remove("btn-active");
 });
 
-document.getElementById("addmoney-btn").addEventListener("click", function () {
-  document.getElementById("cashout-form").classList.add("hidden");
-  document.getElementById("addmoney-form").classList.remove("hidden");
+addMoneyBtn.addEventListener("click", function () {
+  addMoneyForm.classList.remove("hidden");
+  cashOutForm.classList.add("hidden");
+
+  addMoneyBtn.classList.add("btn-active");
+  cashOutBtn.classList.remove("btn-active");
 });
