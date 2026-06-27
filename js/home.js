@@ -1,50 +1,58 @@
-// add money to the account
-
-//step-1: add event handler to the add money button inside the form
+// --- ADD MONEY LOGIC ---
 document
-  .getElementById("btn-add-money")
-  .addEventListener("click", function (event) {
-    //prevent page reload after form submission
+  .getElementById("form-add-money")
+  .addEventListener("submit", function (event) {
     event.preventDefault();
-    console.log("money add button clicked");
-    const amount = getInputValueById("amount");
+
+    const addMoneyAmount = getInputNumberById("amount");
     const pinNumber = getInputValueById("pin");
 
+    // Basic verification fallback
     if (pinNumber === "1234") {
-      console.log("added money to your account");
+      if (addMoneyAmount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
 
-      // get the current balance and amount as numbers
-      const balance = document.getElementById("balance").innerText;
-      const addAmount = amount;
-      //converting to numbers
-      balanceNumber = parseFloat(balance);
-      addAmountNumber = parseFloat(addAmount);
-      // add amount
-      const newBalance = balanceNumber + addAmountNumber;
-      // update UI
+      const currentBalance = TextElementValueById("balance");
+      const newBalance = currentBalance + addMoneyAmount;
+
       document.getElementById("balance").innerText = newBalance;
-      alert(newBalance);
+      alert(`Successfully added ${addMoneyAmount} BDT!`);
+
+      // Clear Form inputs safely
+      event.target.reset();
     } else {
-      alert("wrong credentials");
+      alert("Invalid PIN. Please try again.");
     }
   });
 
+// --- CASH OUT LOGIC ---
 document
-  .getElementById("btn-withdraw")
-  .addEventListener("click", function (event) {
+  .getElementById("form-withdraw")
+  .addEventListener("submit", function (event) {
     event.preventDefault();
-    const amount = getInputValueById("withdraw-amount");
-    console.log(amount);
-    const pinNumber = getInputValueById("pin");
-    const balance = document.getElementById("balance").innerText;
-    const balanceNumber = parseFloat(balance);
-    const withdrawAmount = parseFloat(amount);
+
+    const cashOutAmount = getInputNumberById("withdraw-amount");
+    const pinNumber = getInputValueById("withdraw-pin");
+    const currentBalance = TextElementValueById("balance");
 
     if (pinNumber === "1234") {
-      const newBalance = balanceNumber - withdrawAmount;
+      if (cashOutAmount <= 0) {
+        alert("Please enter a valid transactional amount.");
+        return;
+      }
+      if (cashOutAmount > currentBalance) {
+        alert("Insufficient funds for withdrawal.");
+        return;
+      }
 
+      const newBalance = currentBalance - cashOutAmount;
       document.getElementById("balance").innerText = newBalance;
+      alert(`Successfully cashed out ${cashOutAmount} BDT!`);
+
+      event.target.reset();
     } else {
-      alert("wrong credentials");
+      alert("Invalid PIN. Please try again.");
     }
   });
