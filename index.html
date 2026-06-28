@@ -3,81 +3,202 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Payoo MFS - Login</title>
-
+    <title>Payoo MFS Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
-  <body class="bg-neutral-950 min-h-screen flex items-center justify-center p-4">
+  <body
+    class="bg-neutral-950 min-h-screen flex items-center justify-center p-4"
+  >
     <main class="w-full max-w-sm">
-      
       <div class="mockup-phone border-neutral-800 shadow-2xl">
         <div class="mockup-phone-camera"></div>
-        <div class="mockup-phone-display bg-neutral-900 text-neutral-200 p-6 pt-12">
-          
-          <div class="text-center mb-8">
-            <h1 class="text-4xl font-extrabold tracking-tight text-white mb-2">Payoo MFS</h1>
-            <p class="text-sm text-neutral-400 px-4">
-              Securely access your mobile financial services dashboard.
-            </p>
-          </div>
-
-          <div class="card bg-neutral-950/50 border border-neutral-800 rounded-2xl shadow-xl">
-            <form class="card-body p-6" action="#" method="POST">
-              
-              <div class="form-control mb-4">
-                <label for="phone-number" class="label label-text font-medium text-neutral-300 pb-1">
-                  Phone Number
-                </label>
-                <input
-                  id="phone-number"
-                  type="tel"
-                  class="input input-bordered input-md w-full bg-neutral-900 text-white focus:input-primary"
-                  placeholder="+8801*********"
-                  autocomplete="tel"
-                  required
-                />
-              </div>
-
-              <div class="form-control mb-2">
-                <label for="pin-number" class="label label-text font-medium text-neutral-300 pb-1">
-                  4-Digit PIN
-                </label>
-                <input
-                  id="pin-number"
-                  type="password"
-                  class="input input-bordered input-md w-full bg-neutral-900 text-white focus:input-primary"
-                  placeholder="••••"
-                  inputmode="numeric"
-                  pattern="[0-9]*"
-                  autocomplete="current-password"
-                  required
-                />
-              </div>
-
-              <div class="text-right mb-6">
-                <a href="#" class="link link-hover text-xs text-neutral-400 hover:text-primary transition-colors">
-                  Forgot PIN?
-                </a>
-              </div>
-
-              <button
-                id="btn-login"
-                type="submit"
-                class="btn btn-primary w-full shadow-lg"
+        <div
+          class="mockup-phone-display bg-neutral-900 text-neutral-200 p-6 pt-12"
+        >
+          <section id="login-view" class="w-full">
+            <div class="text-center mb-8">
+              <h1
+                class="text-4xl font-extrabold tracking-tight text-white mb-2"
               >
-                Login
+                Payoo MFS
+              </h1>
+              <p class="text-sm text-neutral-400 px-4">
+                Securely login to your mobile wallet.
+              </p>
+            </div>
+            <div
+              class="card bg-neutral-950/50 border border-neutral-800 rounded-2xl shadow-xl"
+            >
+              <form id="form-login" class="card-body p-6">
+                <div class="form-control mb-4">
+                  <label
+                    class="label label-text font-medium text-neutral-300 pb-1"
+                    >Phone Number</label
+                  >
+                  <input
+                    id="login-phone"
+                    type="tel"
+                    class="input input-bordered bg-neutral-900 text-white"
+                    placeholder="5"
+                    required
+                  />
+                </div>
+                <div class="form-control mb-6">
+                  <label
+                    class="label label-text font-medium text-neutral-300 pb-1"
+                    >4-Digit PIN</label
+                  >
+                  <input
+                    id="login-pin"
+                    type="password"
+                    class="input input-bordered bg-neutral-900 text-white"
+                    placeholder="1234"
+                    maxlength="4"
+                    pattern="\d{4}"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary w-full shadow-lg">
+                  Login
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <section id="dashboard-view" class="w-full hidden animate-fade-in">
+            <div class="flex justify-center mb-4">
+              <div
+                class="stats shadow bg-white text-black text-center min-w-[220px]"
+              >
+                <div class="stat p-4">
+                  <div
+                    id="account-balance"
+                    class="stat-value text-3xl font-black"
+                  >
+                    89400
+                  </div>
+                  <div
+                    class="stat-desc text-black opacity-70 font-semibold mt-1"
+                  >
+                    Available Balance (BDT)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 my-4">
+              <button
+                id="nav-add-money"
+                class="btn btn-sm btn-active btn-neutral"
+              >
+                Add Money
               </button>
-              
-            </form>
-          </div>
-          
+              <button id="nav-cash-out" class="btn btn-sm btn-neutral">
+                Cash Out
+              </button>
+              <button id="nav-history" class="btn btn-sm btn-neutral">
+                History
+              </button>
+            </div>
+
+            <div class="divider divider-neutral my-2"></div>
+
+            <div id="feature-panels" class="min-h-[260px]">
+              <div
+                id="panel-add-money"
+                class="card bg-base-100 shadow-xl border border-neutral-800"
+              >
+                <form id="form-add-money" class="card-body p-4 text-black">
+                  <h3
+                    class="text-white font-bold mb-2 text-center text-sm tracking-wide"
+                  >
+                    ADD MONEY SERVICE
+                  </h3>
+                  <input
+                    id="add-amount"
+                    type="number"
+                    class="input input-bordered w-full bg-neutral-900 text-white mb-2"
+                    placeholder="Amount"
+                    min="1"
+                    required
+                  />
+                  <input
+                    id="add-pin"
+                    type="password"
+                    class="input input-bordered w-full bg-neutral-900 text-white mb-4"
+                    placeholder="4-Digit PIN"
+                    maxlength="4"
+                    pattern="\d{4}"
+                    required
+                  />
+                  <button type="submit" class="btn btn-primary btn-sm w-full">
+                    Confirm Deposit
+                  </button>
+                </form>
+              </div>
+
+              <div
+                id="panel-cash-out"
+                class="card bg-base-100 shadow-xl border border-neutral-800 hidden"
+              >
+                <form id="form-cash-out" class="card-body p-4 text-black">
+                  <h3
+                    class="text-white font-bold mb-2 text-center text-sm tracking-wide"
+                  >
+                    CASH OUT SERVICE
+                  </h3>
+                  <input
+                    id="withdraw-amount"
+                    type="number"
+                    class="input input-bordered w-full bg-neutral-900 text-white mb-2"
+                    placeholder="Amount"
+                    min="1"
+                    required
+                  />
+                  <input
+                    id="withdraw-pin"
+                    type="password"
+                    class="input input-bordered w-full bg-neutral-900 text-white mb-4"
+                    placeholder="4-Digit PIN"
+                    maxlength="4"
+                    pattern="\d{4}"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    class="btn btn-error btn-sm w-full text-white"
+                  >
+                    Confirm Withdrawal
+                  </button>
+                </form>
+              </div>
+
+              <div
+                id="panel-history"
+                class="card bg-base-100 shadow-xl border border-neutral-800 p-4 hidden max-h-[260px] overflow-y-auto"
+              >
+                <h3
+                  class="text-white font-bold mb-3 text-center text-sm tracking-wide"
+                >
+                  TRANSACTION LEDGER
+                </h3>
+                <div id="transaction-container" class="space-y-2">
+                  <p class="text-center text-xs text-neutral-500 py-4">
+                    No recent transactions found.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-      
     </main>
-    
-    <script src="./js/utilities.js"></script>
-    <script src="./js/login.js"></script>
+
+    <script src="./js/app.js"></script>
   </body>
 </html>
